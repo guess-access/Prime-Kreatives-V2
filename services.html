@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Services and Pricing | Prime Kreatives</title>
+<meta name="description" content="Ops and client success retainers from $450/month, reporting systems, SOPs and brand packages with flat pricing in USD, PHP or AUD. Free Ops Leak Audit. Build your quote online.">
+<link rel="canonical" href="https://primekreatives.com/services">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Services and Pricing — Prime Kreatives">
+<meta property="og:description" content="Clear flat pricing for ops retainers, reporting, SOPs and brand work. USD, PHP or AUD. Build your quote online.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://primekreatives.com/services">
+<meta property="og:image" content="https://primekreatives.com/assets/logo-footer.png"><meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/kit.css">
+<style>
+/* ---- page-specific: jump nav, audit card, currency, quote builder ---- */
+.cur{display:flex;gap:6px;margin-top:18px;flex-wrap:wrap}
+.cur button{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.1em;padding:8px 17px;border-radius:100px;border:1.5px solid rgba(15,41,76,.25);background:transparent;color:var(--slate);cursor:pointer;transition:border-color .2s var(--ease),color .2s var(--ease),background .2s var(--ease),transform .2s var(--ease)}
+.cur button:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-1px)}
+.cur button[aria-pressed=true]{background:linear-gradient(140deg,var(--gold),var(--amber));border-color:transparent;color:var(--indigo);font-weight:700}
+
+.audit{background:#fff;border:1px solid var(--gold);border-radius:var(--radius);padding:26px 30px;display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap;box-shadow:var(--shadow)}
+.audit h2{font-size:1.35rem;margin:0 0 .3rem}
+.audit p{margin:0;max-width:56ch;font-size:.97rem;color:var(--slate)}
+
+.jump{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}
+.jump a{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--slate);padding:8px 16px;border:1px solid rgba(15,41,76,.18);border-radius:100px;background:#fff;transition:border-color .2s var(--ease),color .2s var(--ease),transform .2s var(--ease)}
+.jump a:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+
+.svc-for{font-size:.9rem;color:var(--slate);margin:1rem 0 0;padding-top:.9rem;border-top:1px solid var(--line)}
+.svc-for b{display:block;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem;font-weight:400}
+
+.terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px;margin-top:34px;padding-top:26px;border-top:1px solid var(--line)}
+.terms h3{font-size:1.05rem;margin:0 0 .35rem}
+.terms p{margin:0;font-size:.93rem;color:var(--slate)}
+.footnote{font-size:.85rem;color:var(--slate);opacity:.8;margin-top:22px}
+
+/* ---- quote builder ---- */
+.qb{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:34px;align-items:start}
+@media (max-width:920px){.qb{grid-template-columns:1fr}.qbox{position:static;max-height:none}}
+.qb-form h3{font-size:1.15rem;margin:1.75rem 0 .25rem}
+.qb-form h3:first-child{margin-top:0}
+.qb-form .hint{margin:0 0 .9rem;font-size:.9rem;color:var(--slate)}
+.row{display:flex;gap:14px;flex-wrap:wrap}
+.row .field{flex:1;min-width:150px}
+fieldset{border:0;padding:0;margin:22px 0 0}
+legend{padding:0;font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:.6rem}
+.extra{display:none;max-width:280px;margin-top:12px}
+.msg{font-size:.9rem;margin-left:10px;color:var(--gold)}
+
+input[type=checkbox],input[type=radio]{width:18px;height:18px;padding:0;border:none;accent-color:var(--gold);cursor:pointer;flex:none}
+
+.chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.chip{position:relative;display:flex;gap:10px;align-items:flex-start;padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.55);cursor:pointer;font:400 .92rem/1.45 var(--font-body);color:var(--ink);text-transform:none;letter-spacing:0;transition:border-color .18s,background .18s,box-shadow .18s}
+.chip:hover{border-color:rgba(184,137,23,.55);background:#fff}
+.chip:has(input:checked){border-color:var(--gold);background:#fff;box-shadow:inset 0 0 0 1px var(--gold)}
+.chip input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.mark{flex:none;width:18px;height:18px;margin-top:2px;border:1.5px solid var(--navy);border-radius:5px;display:grid;place-items:center;transition:background .18s}
+.chip:has(input:checked) .mark{background:var(--navy)}
+.chip:has(input:checked) .mark::after{content:"";width:8px;height:4px;border:2px solid var(--sand);border-top:0;border-right:0;transform:rotate(-45deg) translate(1px,-1px)}
+
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
+.opt{position:relative}
+.opt label{display:flex;flex-direction:column;gap:2px;height:100%;padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.55);cursor:pointer;font:400 .92rem/1.45 var(--font-body);text-transform:none;letter-spacing:0;color:var(--ink);transition:border-color .18s,background .18s,box-shadow .18s}
+.opt label:hover{border-color:rgba(184,137,23,.55);background:#fff}
+.opt label:has(input:checked){border-color:var(--gold);background:#fff;box-shadow:inset 0 0 0 1px var(--gold)}
+.opt input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.opt b{font-weight:600;color:var(--navy)}
+.opt .pr{font-family:var(--font-display);font-weight:600;font-size:1.05rem;color:var(--navy)}
+.opt small{font-size:.8rem;color:var(--slate);line-height:1.4}
+.opt.none label{justify-content:center;align-items:center;opacity:.85}
+
+.tick{display:flex;gap:10px;align-items:center;padding:7px 0;font:400 .95rem/1.45 var(--font-body);color:var(--ink);text-transform:none;letter-spacing:0;cursor:pointer}
+.tick small{color:var(--slate)}
+.tick input[type=number]{width:84px;padding:7px 9px}
+#smsg:empty{display:none}
+
+/* live quote panel */
+.qbox{--qfg:var(--paper);--qsoft:rgba(244,241,234,.7);--qrule:rgba(244,241,234,.22);--qhl:var(--sand);
+  background:linear-gradient(155deg,var(--indigo),var(--navy));color:var(--qfg);
+  border-radius:18px;padding:34px 30px;position:sticky;top:92px;max-height:calc(100vh - 112px);overflow:auto;box-shadow:var(--shadow-lg)}
+.qbox h3{color:var(--qhl);font-size:1.05rem;margin:0}
+.q-client{font-family:var(--font-display);font-size:1.7rem;font-weight:600;line-height:1.2;margin:4px 0 2px;overflow-wrap:anywhere;color:var(--qfg)}
+.q-meta{font-size:.85rem;color:var(--qsoft);margin:0 0 16px}
+.q-lines{list-style:none;margin:0;padding:0;border-top:1px solid var(--qrule)}
+.q-lines li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--qrule);font-size:.94rem}
+.q-lines li>span:last-child{white-space:nowrap;font-variant-numeric:tabular-nums}
+.q-lines .neg>span:last-child{color:var(--qhl)}
+.q-lines small{display:block;color:var(--qsoft);font-size:.8rem}
+.q-empty{color:var(--qsoft);font-size:.94rem;padding:14px 0}
+.q-totals{margin-top:20px;display:grid;gap:14px}
+.q-tot .lbl{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--qsoft);margin-bottom:2px}
+.q-tot .big{font-family:var(--font-display);font-weight:600;font-size:clamp(1.9rem,3vw,2.5rem);line-height:1.1;color:var(--qhl);font-variant-numeric:tabular-nums}
+.q-tot .sub{font-size:.85rem;color:var(--qsoft)}
+.q-terms{margin-top:18px;font-size:.82rem;color:var(--qsoft);line-height:1.55}
+.q-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.q-actions .btn{padding:11px 20px;font-size:11.5px}
+
+@media print{
+  .site-head,.site-foot,.page-head,section:not(#quote){display:none!important}
+  #quote{padding:0}
+  #quote .section-head,#quote .qb-form{display:none!important}
+  .qbox{position:static;max-height:none;overflow:visible;--qfg:#0F294C;--qsoft:#4a5a73;--qrule:#cfd5de;--qhl:#8a6508;background:#fff;box-shadow:none;border:1px solid #cfd5de}
+  .q-actions{display:none}
+  .reveal{opacity:1!important;transform:none!important;clip-path:none!important}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body data-site="main">
+<header class="site-head" id="site-header"></header>
+
+<main id="main">
+
+<div class="page-head"><div class="wrap"><div class="reveal wipe">
+  <span class="eyebrow">Services and pricing</span>
+  <h1>Find where your operations leak, then <span class="gold">fix it</span></h1>
+  <p>Prime Kreatives gives growing businesses a steady operations partner: client success support, reporting systems, documented processes and a brand that looks as sharp as your work.</p>
+  <div class="cta-row">
+    <a class="btn" href="#audit">Start with the free audit</a>
+    <a class="btn ghost" href="#quote">Build your quote</a>
+  </div>
+  <div class="cur" role="group" aria-label="Show prices in">
+    <button type="button" data-c="USD" aria-pressed="true">USD</button>
+    <button type="button" data-c="PHP" aria-pressed="false">PHP</button>
+    <button type="button" data-c="AUD" aria-pressed="false">AUD</button>
+  </div>
+</div></div></div>
+
+<section class="sec tight"><div class="wrap">
+  <div class="audit reveal" id="audit">
+    <div>
+      <h2>FREE Ops Leak Audit</h2>
+      <p>A 15-point review of your operations, with a 10-minute walkthrough of what is slowing you down. Every package below can be your next step.</p>
+    </div>
+    <a class="btn" href="/discovery-call">Claim your audit</a>
+  </div>
+  <nav class="jump reveal" aria-label="Services">
+    <a href="#ops">Ops &amp; Client Success</a>
+    <a href="#reporting">Reporting &amp; Database</a>
+    <a href="#process">Process &amp; SOPs</a>
+    <a href="#brand">Designs &amp; Brand</a>
+    <a href="#addons">Add-ons</a>
+    <a href="#quote">Quote builder</a>
+  </nav>
+</div></section>
+
+<section class="sec" id="ops"><div class="wrap"><div class="split">
+  <div class="reveal wipe">
+    <span class="eyebrow">Monthly retainer</span>
+    <h2>Ops &amp; Client Success</h2>
+    <p class="lead">A reliable right hand who keeps clients, inboxes and deadlines under control. Billed monthly.</p>
+    <p class="svc-for"><b>Best for</b>Founders, brokers and leaders who are doing too much themselves.</p>
+  </div>
+  <ul class="ledger">
+    <li class="reveal">
+      <b>Essentials</b>
+      <em data-usd="450">$450<small>per month</small></em>
+      <span>Up to 15 hours a month.</span>
+      <ul>
+        <li>Inbox and calendar support</li>
+        <li>Task tracking</li>
+        <li>One monthly report</li>
+        <li>Extra hours at <span data-usd="30">$30</span> each</li>
+      </ul>
+    </li>
+    <li class="reveal">
+      <b>Growth<span class="best">Most chosen</span></b>
+      <em data-usd="1100">$1,100<small>per month</small></em>
+      <span>Up to 40 hours a month.</span>
+      <ul>
+        <li>Client success management</li>
+        <li>SLA and KPI tracking</li>
+        <li>Weekly client-facing report</li>
+        <li>Process fixes as issues surface</li>
+        <li>Extra hours at <span data-usd="27">$27</span> each</li>
+      </ul>
+    </li>
+    <li class="reveal">
+      <b>Executive Partner</b>
+      <em data-usd="2000">$2,000<small>per month</small></em>
+      <span>Up to 80 hours a month.</span>
+      <ul>
+        <li>Multi-principal executive support</li>
+        <li>Team coaching and risk flags</li>
+        <li>SLA and KPI dashboards</li>
+        <li>Monthly strategy review</li>
+        <li>Extra hours at <span data-usd="25">$25</span> each</li>
+      </ul>
+    </li>
+  </ul>
+</div></div></section>
+
+<section class="sec alt" id="reporting"><div class="wrap"><div class="split">
+  <div class="reveal wipe">
+    <span class="eyebrow">One-time project</span>
+    <h2>Reporting &amp; Database</h2>
+    <p class="lead">Replace scattered spreadsheets with one place that shows what is happening, and reports that clients can read.</p>
+    <p class="svc-for"><b>Best for</b>Teams drowning in manual reports and spreadsheets.</p>
+  </div>
+  <ul class="ledger">
+    <li class="reveal">
+      <b>Starter Tracker</b>
+      <em data-usd="350">$350</em>
+      <span>One dashboard or tracker in Google Sheets, Notion or Monday, with a short how-to guide.</span>
+    </li>
+    <li class="reveal">
+      <b>Client Reporting System</b>
+      <em data-usd="750">$750</em>
+      <span>Report templates, automated data pulls and a branded client-facing report design.</span>
+    </li>
+    <li class="reveal">
+      <b>Ops Command Center</b>
+      <em data-usd="1500" data-from="1">from $1,500</em>
+      <span>A full database and dashboard setup with KPI and SLA tracking, team training and 30 days of support.</span>
+    </li>
+  </ul>
+</div></div></section>
+
+<section class="sec" id="process"><div class="wrap"><div class="split">
+  <div class="reveal wipe">
+    <span class="eyebrow">One-time project</span>
+    <h2>Automated Process &amp; SOPs</h2>
+    <p class="lead">Get how your business runs out of people's heads and onto the page, then automate the repetitive parts.</p>
+    <p class="svc-for"><b>Best for</b>Businesses that depend on one person knowing everything.</p>
+  </div>
+  <ul class="ledger">
+    <li class="reveal">
+      <b>SOP Pack</b>
+      <em data-usd="300">$300</em>
+      <span>Five documented SOPs in your brand format, with checklists.</span>
+    </li>
+    <li class="reveal">
+      <b>Automation Sprint</b>
+      <em data-usd="600">$600</em>
+      <span>Three workflow automations using Zapier or Google Apps Script, tested and documented.</span>
+    </li>
+    <li class="reveal">
+      <b>Process Overhaul</b>
+      <em data-usd="1400">$1,400</em>
+      <span>A process audit, 10 SOPs, 5 automations and a team handover session.</span>
+    </li>
+  </ul>
+</div></div></section>
+
+<section class="sec alt" id="brand"><div class="wrap"><div class="split">
+  <div class="reveal wipe">
+    <span class="eyebrow">One-time project</span>
+    <h2>Designs &amp; Brand</h2>
+    <p class="lead">A visual identity and the everyday materials to match, so you look established from the first impression.</p>
+    <p class="svc-for"><b>Best for</b>Businesses pitching bigger clients and needing to look the part.</p>
+  </div>
+  <ul class="ledger">
+    <li class="reveal">
+      <b>Logo &amp; Mini Brand Kit</b>
+      <em data-usd="250">$250</em>
+      <span>Primary logo, colour palette and fonts.</span>
+    </li>
+    <li class="reveal">
+      <b>Brand Identity Package</b>
+      <em data-usd="600">$600</em>
+      <span>Four logo variations (primary, secondary, submark, favicon), white and black versions, a colour guide and a mockup presentation deck.</span>
+    </li>
+    <li class="reveal">
+      <b>Brand-to-Business Suite</b>
+      <em data-usd="1100">$1,100</em>
+      <span>The full identity plus a branded pitch deck, social media templates, a one-pager and a report template.</span>
+    </li>
+  </ul>
+</div></div></section>
+
+<section class="sec" id="addons"><div class="wrap">
+  <div class="section-head reveal wipe">
+    <span class="eyebrow">Extras</span>
+    <h2>Add-ons and terms</h2>
+    <p>Bolt these onto any package. Every price converts with the currency switcher above.</p>
+  </div>
+  <ul class="ledger" style="max-width:760px">
+    <li class="reveal"><b>Social media template set (10)</b><em data-usd="150">$150</em></li>
+    <li class="reveal"><b>Branded slide deck (up to 12 slides)</b><em data-usd="200">$200</em></li>
+    <li class="reveal"><b>Monthly maintenance of what we built</b><em data-usd="120" data-per="1">$120 /month</em></li>
+    <li class="reveal"><b>Extra revision round</b><em data-usd="40">$40</em></li>
+    <li class="reveal"><b>Rush delivery, under 5 days</b><em>+25%</em></li>
+    <li class="reveal"><b>Retainer plus a project</b><em>10% off</em></li>
+  </ul>
+  <div class="terms reveal">
+    <div><h3>Projects</h3><p>50% upfront and 50% on delivery. Two revision rounds are included.</p></div>
+    <div><h3>Retainers</h3><p>Billed monthly in advance, with a three-month minimum and 30 days' notice to cancel.</p></div>
+    <div><h3>Not sure what fits?</h3><p>Start with the free audit. It shows which package solves your biggest leak first.</p></div>
+  </div>
+  <p class="footnote">Prices are shown in the selected currency and converted from USD at an approximate rate. Final quotes are confirmed in writing.</p>
+</div></section>
+
+<section class="sec alt" id="quote"><div class="wrap">
+  <div class="section-head centered reveal wipe">
+    <span class="eyebrow centered">Quote builder</span>
+    <h2>Build a quote around what the client needs</h2>
+    <p>Tick what is hurting them, apply the suggested packages, then adjust. The quote updates as you go.</p>
+  </div>
+
+  <div class="qb">
+    <div class="qb-form form-card reveal">
+      <h3>Client</h3>
+      <div class="row">
+        <div class="field"><label for="client">Client or business name</label><input type="text" id="client" placeholder="e.g. Harbour Mortgage Group"></div>
+        <div class="field" style="max-width:170px"><label for="cur">Currency</label>
+          <select id="cur"><option value="USD">USD ($)</option><option value="PHP">PHP (&#8369;)</option><option value="AUD">AUD (A$)</option></select></div>
+        <div class="field" style="max-width:150px"><label for="rate">Rate per 1 USD</label><input type="number" id="rate" min="0" step="0.01" value="1"></div>
+      </div>
+
+      <h3>What is hurting right now?</h3>
+      <p class="hint">Choose every statement that sounds like the client.</p>
+      <div class="chips" id="needs"></div>
+      <div class="cta-row" style="margin-top:16px">
+        <button class="btn" id="suggest" type="button">Suggest packages</button>
+        <span class="msg" id="smsg" role="status"></span>
+      </div>
+
+      <h3>Packages</h3>
+      <p class="hint">Suggestions are a starting point. Change any of them.</p>
+      <div id="lines"></div>
+      <div class="field extra" id="xbox"><label for="xhrs">Extra retainer hours per month</label><input type="number" id="xhrs" min="0" step="1" value="0"></div>
+
+      <h3>Add-ons and adjustments</h3>
+      <div id="qaddons"></div>
+      <div class="row" style="margin-top:14px">
+        <div class="field"><label for="disc">Extra discount (%)</label><input type="number" id="disc" min="0" max="100" step="1" value="0"></div>
+        <div class="field"><label for="adj">Custom scope adjustment (USD, one-time)</label><input type="number" id="adj" step="10" value="0"></div>
+      </div>
+    </div>
+
+    <aside class="qbox" aria-live="polite">
+      <h3>Quote</h3>
+      <div class="q-client" id="qclient">Client name</div>
+      <p class="q-meta" id="qmeta"></p>
+      <ul class="q-lines" id="qlines"></ul>
+      <div class="q-totals">
+        <div class="q-tot"><div class="lbl">One-time total</div><div class="big" id="tone">0</div><div class="sub" id="tdue"></div></div>
+        <div class="q-tot"><div class="lbl">Monthly total</div><div class="big" id="tmon">0</div><div class="sub" id="tmsub"></div></div>
+      </div>
+      <p class="q-terms">Projects: 50% upfront, 50% on delivery, 2 revision rounds included. Retainers: billed monthly in advance, 3-month minimum, 30 days' notice to cancel. Quote valid for 14 days.</p>
+      <div class="q-actions">
+        <button class="btn" id="copy" type="button">Copy quote</button>
+        <button class="btn ghost on-dark" id="print" type="button">Print or save PDF</button>
+        <button class="btn ghost on-dark" id="reset" type="button">Start over</button>
+      </div>
+    </aside>
+  </div>
+</div></section>
+
+<section class="sec tight"><div class="wrap">
+  <div class="cta-band reveal">
+    <span class="eyebrow centered on-dark">Ready when you are</span>
+    <h2>Ready to stop the leaks?</h2>
+    <p>Book your free Ops Leak Audit and leave with a clear picture of what to fix first.</p>
+    <div class="cta-row">
+      <a class="btn on-dark" href="/discovery-call">Get my free audit</a>
+      <a class="btn ghost on-dark" href="mailto:info@primekreatives.com">Email info@primekreatives.com</a>
+    </div>
+  </div>
+</div></section>
+
+</main>
+<footer class="site-foot" id="site-footer"></footer>
+
+<script src="/kit.js" defer></script>
+<script>
+/* Services & Pricing — currency switcher + quote builder.
+   Prices are stored in USD (data-usd / LINES / ADDONS) and converted on render.
+   The page switcher and the builder's own Currency select stay in sync. */
+(function(){
+'use strict';
+var SYM={USD:'$',PHP:'\u20B1',AUD:'A$'}, RATE={USD:1,PHP:58,AUD:1.5};
+var $=function(id){return document.getElementById(id);};
+var qRender=null;
+
+/* ---------- page prices ---------- */
+function setCur(c){
+  Array.prototype.forEach.call(document.querySelectorAll('[data-usd]'),function(el){
+    var v=SYM[c]+Math.round((+el.dataset.usd)*RATE[c]).toLocaleString('en-US');
+    var small=el.querySelector('small');
+    if(el.dataset.from) el.textContent='from '+v;
+    else if(el.dataset.per) el.textContent=v+' /month';
+    else if(small) el.innerHTML=v+small.outerHTML;
+    else el.textContent=v;
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.cur button'),function(b){
+    b.setAttribute('aria-pressed',String(b.dataset.c===c));
+  });
+}
+
+/* ---------- quote builder ---------- */
+var LINES={
+  retainer:{title:'Ops & Client Success retainer',monthly:true,tiers:[
+    {n:'Essentials',p:450,x:30,d:'Up to 15 hrs: inbox, calendar, tasks, 1 monthly report'},
+    {n:'Growth',p:1100,x:27,d:'Up to 40 hrs: client success, SLA/KPI tracking, weekly client report'},
+    {n:'Executive Partner',p:2000,x:25,d:'Up to 80 hrs: multi-principal support, team coaching, monthly strategy review'}]},
+  reporting:{title:'Reporting & Database',tiers:[
+    {n:'Starter Tracker',p:350,d:'One dashboard or tracker plus a how-to guide'},
+    {n:'Client Reporting System',p:750,d:'Report templates, automated data pulls, branded client report'},
+    {n:'Ops Command Center',p:1500,d:'Full database and dashboards, KPI/SLA tracking, training, 30 days support (from)'}]},
+  process:{title:'Automated Process & SOPs',tiers:[
+    {n:'SOP Pack',p:300,d:'Five documented SOPs in your brand format, with checklists'},
+    {n:'Automation Sprint',p:600,d:'Three workflow automations (Zapier or Apps Script), tested and documented'},
+    {n:'Process Overhaul',p:1400,d:'Audit, 10 SOPs, 5 automations, team handover session'}]},
+  brand:{title:'Designs & Brand',tiers:[
+    {n:'Logo & Mini Brand Kit',p:250,d:'Primary logo, colour palette and fonts'},
+    {n:'Brand Identity Package',p:600,d:'4 logo variations, white/black versions, colour guide, mockup deck'},
+    {n:'Brand-to-Business Suite',p:1100,d:'Full identity, pitch deck, social templates, one-pager, report template'}]}
+};
+var ADDONS=[
+  {id:'social',n:'Social media template set (10)',p:150},
+  {id:'deck',n:'Branded slide deck (up to 12 slides)',p:200},
+  {id:'maint',n:'Monthly maintenance of what we built',p:120,monthly:true},
+  {id:'rev',n:'Extra revision rounds',p:40,qty:true},
+  {id:'rush',n:'Rush delivery (under 5 days): +25% on one-time work',rush:true},
+  {id:'bundle',n:'Bundle discount: 10% off projects when a retainer is included',bundle:true,on:true}
+];
+var NEEDS=[
+  ['reporting','Reports take hours and eat evenings'],
+  ['reporting','Clients want clearer, branded reporting'],
+  ['reporting','Leadership has no live view of KPIs and SLAs'],
+  ['retainer','Needs a right hand for inbox, calendar and follow-ups'],
+  ['retainer','Client accounts or SLAs are slipping'],
+  ['retainer','Supports several leaders or a whole team'],
+  ['process','Processes live in people\u2019s heads'],
+  ['process','Repetitive manual work every week'],
+  ['process','New hires take too long to get up to speed'],
+  ['brand','No logo, or an inconsistent look'],
+  ['brand','Needs decks and templates that look sharp'],
+  ['brand','Pitching bigger clients and must look the part']
+];
+var cur=function(){return $('cur').value;};
+var rate=function(){return Math.max(+$('rate').value||0,0);};
+var money=function(usd){return SYM[cur()]+(usd*rate()).toLocaleString('en-US',{maximumFractionDigits:0});};
+var sel={retainer:-1,reporting:-1,process:-1,brand:-1};
+
+/* build UI */
+$('needs').innerHTML=NEEDS.map(function(n,i){
+  return '<label class="chip"><input type="checkbox" data-need="'+i+'"><span class="mark"></span><span>'+n[1]+'</span></label>';
+}).join('');
+$('lines').innerHTML=Object.keys(LINES).map(function(k){
+  var L=LINES[k];
+  return '<fieldset><legend>'+L.title+(L.monthly?' (monthly)':'')+'</legend><div class="opts">'
+    +'<div class="opt none"><label><input type="radio" name="'+k+'" value="-1" checked><b>None</b></label></div>'
+    +L.tiers.map(function(t,i){
+      return '<div class="opt"><label><input type="radio" name="'+k+'" value="'+i+'"><b>'+t.n+'</b><span class="pr" data-p="'+k+'-'+i+'"></span><small>'+t.d+'</small></label></div>';
+    }).join('')
+    +'</div></fieldset>';
+}).join('');
+$('qaddons').innerHTML=ADDONS.map(function(a){
+  return '<label class="tick'+(a.qty?' n':'')+'"><input type="'+(a.qty?'number':'checkbox')+'" id="a_'+a.id+'"'
+    +(a.qty?' min="0" value="0"':'')+(a.on?' checked':'')+'>'
+    +'<span>'+a.n+(a.p?' <small>(<span data-p="a-'+a.id+'"></span>'+(a.qty?' each':a.monthly?' /month':'')+')</small>':'')+'</span></label>';
+}).join('');
+
+/* calculate */
+function calc(){
+  var items=[],proj=0,mon=0,sub=0;
+  Object.keys(LINES).forEach(function(k){
+    var i=sel[k]; if(i<0) return;
+    var L=LINES[k],t=L.tiers[i];
+    items.push({l:L.title+': '+t.n,d:t.d,a:t.p,m:!!L.monthly});
+    if(L.monthly) mon+=t.p; else proj+=t.p;
+  });
+  var hrs=+$('xhrs').value||0;
+  if(sel.retainer>=0&&hrs>0){
+    var rt=LINES.retainer.tiers[sel.retainer],a=hrs*rt.x;
+    items.push({l:'Extra hours ('+hrs+' \u00D7 '+money(rt.x)+')',a:a,m:true});mon+=a;
+  }
+  var extras=0;
+  ADDONS.forEach(function(ad){
+    var el=$('a_'+ad.id);
+    if(ad.qty){var q=+el.value||0;if(q>0){var x=q*ad.p;items.push({l:ad.n+' ('+q+')',a:x});extras+=x;}}
+    else if(ad.monthly){if(el.checked){items.push({l:ad.n,a:ad.p,m:true});mon+=ad.p;}}
+    else if(ad.p){if(el.checked){items.push({l:ad.n,a:ad.p});extras+=ad.p;}}
+  });
+  var adj=+$('adj').value||0; if(adj){items.push({l:'Custom scope adjustment',a:adj});}
+  sub=proj+extras+adj;
+  if($('a_rush').checked&&sub>0){var r=sub*.25;items.push({l:'Rush delivery (+25%)',a:r});sub+=r;}
+  if($('a_bundle').checked&&sel.retainer>=0&&proj>0){var b=proj*.10;items.push({l:'Bundle discount (10% of projects)',a:-b});sub-=b;}
+  var pct=Math.min(Math.max(+$('disc').value||0,0),100);
+  if(pct>0&&sub>0){var d=sub*pct/100;items.push({l:'Extra discount ('+pct+'%)',a:-d});sub-=d;}
+  return {items:items,one:Math.max(sub,0),mon:mon};
+}
+
+function render(){
+  Array.prototype.forEach.call(document.querySelectorAll('[data-p]'),function(s){
+    var parts=s.dataset.p.split('-');
+    var p=parts[0]==='a'?ADDONS.filter(function(a){return a.id===parts[1];})[0].p:LINES[parts[0]].tiers[+parts[1]].p;
+    s.textContent=money(p);
+  });
+  $('xbox').style.display=sel.retainer>=0?'flex':'none';
+  var r=calc(),name=$('client').value.trim();
+  $('qclient').textContent=name||'Client name';
+  $('qmeta').textContent='Prepared '+new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})+' \u00B7 amounts in '+cur();
+  $('qlines').innerHTML=r.items.length
+    ? r.items.map(function(i){
+        return '<li class="'+(i.a<0?'neg':'')+'"><span>'+i.l+(i.m?' <small>monthly</small>':'')+(i.d?'<small>'+i.d+'</small>':'')+'</span><span>'+(i.a<0?'\u2212':'')+money(Math.abs(i.a))+'</span></li>';
+      }).join('')
+    : '<li class="q-empty">Pick a package to start the quote.</li>';
+  $('tone').textContent=money(r.one);
+  $('tdue').textContent=r.one>0?money(r.one/2)+' upfront, '+money(r.one/2)+' on delivery':'';
+  $('tmon').textContent=money(r.mon);
+  $('tmsub').textContent=r.mon>0?'3-month minimum: '+money(r.mon*3):'';
+  window._q=r;
+}
+qRender=render;
+
+/* events */
+$('lines').addEventListener('change',function(e){if(e.target.name in sel){sel[e.target.name]=+e.target.value;render();}});
+Array.prototype.forEach.call(document.querySelectorAll('#qaddons input,#xhrs,#disc,#adj,#client'),function(el){
+  el.addEventListener('input',render);
+});
+$('cur').addEventListener('change',function(){setCur(cur());$('rate').value=RATE[cur()];render();});
+$('rate').addEventListener('input',render);
+
+var group=document.querySelector('.cur');
+if(group)group.addEventListener('click',function(e){
+  var b=e.target.closest('button'); if(!b) return;
+  setCur(b.dataset.c);
+  if($('cur')){$('cur').value=b.dataset.c;$('rate').value=RATE[b.dataset.c];render();}
+});
+
+$('suggest').addEventListener('click',function(){
+  var c={retainer:0,reporting:0,process:0,brand:0};
+  Array.prototype.forEach.call(document.querySelectorAll('[data-need]:checked'),function(el){c[NEEDS[+el.dataset.need][0]]++;});
+  var any=false;
+  Object.keys(c).forEach(function(k){
+    sel[k]=c[k]===0?-1:Math.min(c[k],3)-1; if(c[k]) any=true;
+    var r=document.querySelector('input[name="'+k+'"][value="'+sel[k]+'"]'); if(r) r.checked=true;
+  });
+  $('smsg').textContent=any?'Packages applied. Adjust below.':'Tick at least one need first.';
+  render();
+});
+
+$('copy').addEventListener('click',function(){
+  var r=window._q,n=$('client').value.trim()||'Client';
+  var txt=['Prime Kreatives quote for '+n,'']
+    .concat(r.items.map(function(i){return '- '+i.l+(i.m?' (monthly)':'')+': '+(i.a<0?'-':'')+money(Math.abs(i.a));}))
+    .concat(['','One-time total: '+money(r.one),'Monthly total: '+money(r.mon),'','Projects: 50% upfront, 50% on delivery. Retainers: billed monthly in advance, 3-month minimum. Valid for 14 days.']).join('\n');
+  function done(ok){$('copy').textContent=ok?'Copied':'Copy failed';setTimeout(function(){$('copy').textContent='Copy quote';},1800);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(function(){done(true);},function(){fallback();});
+  } else fallback();
+  function fallback(){
+    var t=document.createElement('textarea');t.value=txt;document.body.appendChild(t);t.select();
+    try{document.execCommand('copy');done(true);}catch(e){done(false);}
+    t.remove();
+  }
+});
+$('print').addEventListener('click',function(){window.print();});
+$('reset').addEventListener('click',function(){
+  Object.keys(sel).forEach(function(k){sel[k]=-1;document.querySelector('input[name="'+k+'"][value="-1"]').checked=true;});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-need]'),function(e){e.checked=false;});
+  ['xhrs','disc','adj'].forEach(function(i){$(i).value=0;});
+  $('client').value='';
+  ADDONS.forEach(function(a){var e=$('a_'+a.id);if(a.qty)e.value=0;else e.checked=!!a.on;});
+  $('smsg').textContent='';
+  render();
+});
+
+/* init */
+setCur('USD');
+$('rate').value=1;
+render();
+})();
+</script>
+</body>
+</html>
