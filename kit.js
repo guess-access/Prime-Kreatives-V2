@@ -4,11 +4,11 @@
 
 var S={
 main:{n:'Prime Kreatives',s:'',h:'/',t:'Where vision meets execution',m:'info@primekreatives.com',
- nav:[['Services','/services'],['Process','/process'],['Portfolio','/portfolio/'],['Digital','/digital/'],['Book a call','/discovery-call','cta']]},
+ nav:[['Services','/services'],['Work','/portfolio/'],['Process','/process'],['Digital','/digital/'],['Book a call','/discovery-call','cta']]},
 portfolio:{n:'Prime Kreatives',s:'Portfolio, Peter Lee',h:'/portfolio/',t:'Proof, not promises.',m:'info@primekreatives.com',
- nav:[['About','/portfolio/#about'],['Work samples','/portfolio/#work'],['Testimonials','/portfolio/#testimonials'],['Main site','/'],['Book a call','/discovery-call','cta']]},
+ nav:[['Reporting','/portfolio/#reporting'],['Brand','/portfolio/#brand'],['Services','/services'],['Main site','/'],['Book a call','/discovery-call','cta']]},
 digital:{n:'Prime Kreatives',s:'Digital',h:'/digital/',t:'Ready-made. Automated. Always in reach.',m:'productsupport@primekreatives.com',
- nav:[['Products','/digital/#products'],['Buyer guidelines','/digital/guidelines'],['Main site','/']]},
+ nav:[['Packs','/digital/#packs'],['How it works','/digital/#how'],['Services','/services'],['Main site','/'],['Book a call','/discovery-call','cta']]},
 };
 
 function headerLogo(){return '<img src="/assets/logo-header.png" alt="Prime Kreatives" width="161" height="40">';}
@@ -68,7 +68,7 @@ if(f){
   var year=new Date().getFullYear();
   f.innerHTML='<div class="wrap foot-grid">'
     +'<div class="foot-brand">'+footerLogo()
-      +'<p class="foot-bio">Client success &amp; executive operations with a creative eye &mdash; reporting, SOPs and brand work that make your business look sharp.</p>'
+      +'<p class="foot-bio">Where vision meets execution &mdash; client success and executive operations with a creative eye: reporting, SOPs and brand work that make your business look sharp.</p>'
       +'<div class="foot-social">'
         +SOCIAL.map(function(s){
           return '<a href="'+s[1]+'" target="_blank" rel="noopener" aria-label="'+s[0]+'">'+s[2]+'</a>';

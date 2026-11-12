@@ -1,0 +1,9 @@
+# Prime Kreatives — robots.txt
+# Content signals: search indexing allowed; AI training and AI input reserved.
+# https://contentsignals.org/
+User-agent: *
+Content-Signal: search=yes, ai-input=no, ai-train=no
+Allow: /
+Disallow: /assets/
+
+Sitemap: https://primekreatives.com/sitemap.xml

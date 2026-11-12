@@ -39,6 +39,8 @@ main [id]{scroll-margin-top:96px}
 .eyebrow.centered::after{content:"";width:26px;height:1px;background:var(--gold);display:inline-block;margin-left:11px;vertical-align:middle}
 .eyebrow.on-dark{color:var(--sand)}
 .eyebrow.on-dark::before,.eyebrow.on-dark::after{background:var(--sand)}
+/* Gold on light paper clears WCAG AA only at the darker shade. */
+.page-head .eyebrow,.sec .eyebrow:not(.on-dark){color:#8a6508}
 
 /* ---------- header ---------- */
 .site-head{position:sticky;top:0;z-index:60;background:rgba(15,41,76,.93);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:box-shadow .3s var(--ease),border-color .3s var(--ease),background .3s var(--ease)}
@@ -243,7 +245,7 @@ input::placeholder,textarea::placeholder{color:#9a9384}
 .points li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;color:rgba(244,241,234,.85);line-height:1.5}
 .points li::before{content:"\2726";color:var(--gold);flex:none}
 .contact-list{margin-top:1.75rem;padding-top:1.25rem;border-top:1px solid rgba(15,41,76,.14);display:grid;gap:.5rem;font-size:.97rem;color:var(--slate)}
-.contact-list a{color:var(--gold)}
+.contact-list a{color:#8a6508}
 
 /* ---------- footer (layout & styling carried over from the original site) ---------- */
 .site-foot{background:var(--indigo);color:rgba(244,241,234,.62);border-top:1px solid rgba(221,181,104,.18);font-size:.95rem}

@@ -8,10 +8,17 @@ Marketing site for **Prime Kreatives** — client success and executive operatio
 
 | File | Purpose |
 |------|---------|
-| `index.html` | Home — hero, services overview, process, CTA |
-| `services.html` | Services & pricing — currency switcher (USD/PHP/AUD) + interactive quote builder |
+| `index.html` | Home — hero, services overview, selected work, process, CTA |
+| `services.html` | Services & pricing — currency switcher (USD/PHP/AUD) + interactive estimate builder |
+| `discovery-call.html` | Free Ops Leak Audit booking page with the lead form |
+| `process.html` | Five-phase engagement, deliverables, FAQ and terms |
+| `portfolio/index.html` | Selected reporting and brand work (`data-site="portfolio"`) |
+| `digital/index.html` | Template packs and order form (`data-site="digital"`) |
+| `404.html` | Branded not-found page (served automatically by Pages) |
 | `privacy-policy.html` | Privacy policy |
 | `terms-legal-policy.html` | Terms and legal policy |
+
+Supporting files: `sitemap.xml`, `robots.txt`, `_redirects` (legacy URLs), `_headers` (security and caching).
 
 ## The shared kit
 
