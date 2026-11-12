@@ -69,6 +69,13 @@ The booking and order forms post to **FormSubmit**
 - To move to a Cloudflare-native pipeline later, swap the `fetch` target in `kit.js` —
   the rest of the form code stays as is.
 
+## Do not redeploy from the old repo
+
+The Cloudflare dashboard still links this Worker to `guess-access/prime-kreatives-digital`
+(branch `App`), which holds the pre-rewrite site. That link is stale and deploys nothing on
+its own. Always deploy from **this** repo with `npx wrangler deploy` — redeploying the old repo
+or restoring an old version would bring back the broken 4-page site.
+
 ## GitHub Pages mirror
 
 `https://guess-access.github.io/Prime-Kreatives-V2/` also serves this repo. It is a
