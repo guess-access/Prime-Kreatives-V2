@@ -1,0 +1,9 @@
+# Local Wrangler state (auth, build caches, deploy metadata)
+.wrangler/
+
+# Node
+node_modules/
+
+# OS cruft
+.DS_Store
+Thumbs.db

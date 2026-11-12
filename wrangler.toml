@@ -1,0 +1,6 @@
+name = "prime-kreatives-digital"
+compatibility_date = "2026-11-10"
+
+# Static site: no build step, no Worker script. Wrangler uploads the repo root
+# as static assets and Cloudflare serves them directly on primekreatives.com.
+assets = { directory = ".", not_found_handling = "404-page" }

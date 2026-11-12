@@ -1,8 +1,8 @@
 # Prime Kreatives V2
 
 Marketing site for **Prime Kreatives** — client success and executive operations support
-("Where vision meets execution"). Static HTML/CSS/JS, deployed on **Cloudflare Pages**
-(migrated from Netlify).
+("Where vision meets execution"). Static HTML/CSS/JS, deployed as a **Cloudflare Worker
+with static assets** on `primekreatives.com` (migrated from Netlify).
 
 ## Pages
 
@@ -14,11 +14,12 @@ Marketing site for **Prime Kreatives** — client success and executive operatio
 | `process.html` | Five-phase engagement, deliverables, FAQ and terms |
 | `portfolio/index.html` | Selected reporting and brand work (`data-site="portfolio"`) |
 | `digital/index.html` | Template packs and order form (`data-site="digital"`) |
-| `404.html` | Branded not-found page (served automatically by Pages) |
+| `404.html` | Branded not-found page |
 | `privacy-policy.html` | Privacy policy |
 | `terms-legal-policy.html` | Terms and legal policy |
 
-Supporting files: `sitemap.xml`, `robots.txt`, `_redirects` (legacy URLs), `_headers` (security and caching).
+Supporting files: `sitemap.xml`, `robots.txt`, `_redirects` (legacy URLs),
+`_headers` (security and caching), `wrangler.toml` + `.assetsignore` (Cloudflare deploy).
 
 ## The shared kit
 
@@ -29,10 +30,13 @@ Supporting files: `sitemap.xml`, `robots.txt`, `_redirects` (legacy URLs), `_hea
   `<body data-site="main | portfolio | digital">`), runs the reveal observer,
   scroll condense, burger toggle and form handling (FormSubmit with mailto fallback).
 
-The same kit will serve the Portfolio and Digital sites, so branding and motion stay in
-sync across all three.
+The same kit serves the Portfolio and Digital pages, so branding and motion stay in sync.
 
 ## Deploy
 
-See [DEPLOY.md](DEPLOY.md) for Cloudflare Pages setup (custom domain, extensionless
-routes, headers).
+```powershell
+npx wrangler login
+npx wrangler deploy
+```
+
+See [DEPLOY.md](DEPLOY.md) for previews, rollback, the custom domain and form activation.
