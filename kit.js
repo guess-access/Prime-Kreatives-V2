@@ -4,7 +4,7 @@
 
 var S={
 main:{n:'Prime Kreatives',s:'',h:'/',t:'Where vision meets execution',m:'info@primekreatives.com',
- nav:[['Services','/services'],['Work','/portfolio/'],['Process','/process'],['Digital','/digital/'],['Book a call','/discovery-call','cta']]},
+ nav:[['Services','/services'],['Work','/portfolio/'],['Process','/process'],['Templates','/digital/'],['Book a call','/discovery-call','cta']]},
 portfolio:{n:'Prime Kreatives',s:'Portfolio, Peter Lee',h:'/portfolio/',t:'Proof, not promises.',m:'info@primekreatives.com',
  nav:[['Reporting','/portfolio/#reporting'],['Brand','/portfolio/#brand'],['Services','/services'],['Main site','/'],['Book a call','/discovery-call','cta']]},
 digital:{n:'Prime Kreatives',s:'Digital',h:'/digital/',t:'Ready-made. Automated. Always in reach.',m:'productsupport@primekreatives.com',

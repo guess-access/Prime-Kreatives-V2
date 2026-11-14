@@ -26,6 +26,13 @@ custom domain is left untouched — this only swaps the asset version.
 
 Never remove `.assetsignore`: without it the deploy would upload `.git` and the docs.
 
+### Cache and the shared kit files
+
+`_headers` serves `kit.css` and `kit.js` with `max-age=0, must-revalidate`, so a deploy is
+visible on the next page load instead of up to an hour later. Every page also loads them with
+a version query (`/kit.css?v=20261114`). If you ever need to force a cold fetch for everyone
+at once, bump that string in all HTML files.
+
 ## Preview a change before it goes live
 
 ```powershell
