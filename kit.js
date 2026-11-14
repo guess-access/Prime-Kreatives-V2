@@ -7,7 +7,7 @@ main:{n:'Prime Kreatives',s:'',h:'/',t:'Where vision meets execution',m:'info@pr
  nav:[['Services','/services'],['Work','/portfolio/'],['Process','/process'],['Templates','/digital/'],['Book a call','/discovery-call','cta']]},
 portfolio:{n:'Prime Kreatives',s:'Portfolio, Peter Lee',h:'/portfolio/',t:'Proof, not promises.',m:'info@primekreatives.com',
  nav:[['Reporting','/portfolio/#reporting'],['Brand','/portfolio/#brand'],['Services','/services'],['Main site','/'],['Book a call','/discovery-call','cta']]},
-digital:{n:'Prime Kreatives',s:'Digital',h:'/digital/',t:'Ready-made. Automated. Always in reach.',m:'productsupport@primekreatives.com',
+digital:{n:'Prime Kreatives',s:'Digital',h:'/digital/',t:'Ready-made. Automated. Always in reach.',m:'clientsupport@primekreatives.com',
  nav:[['Packs','/digital/#packs'],['How it works','/digital/#how'],['Services','/services'],['Main site','/'],['Book a call','/discovery-call','cta']]},
 };
 
@@ -90,7 +90,7 @@ if(f){
       +'<div class="foot-h">Get in touch</div>'
       +'<div class="foot-contact">'
         +'<a href="mailto:'+c.m+'">'+c.m+'</a>'
-        +'<a href="mailto:clientsupport@primekreatives.com">clientsupport@primekreatives.com</a>'
+        +(c.m==='clientsupport@primekreatives.com'?'':'<a href="mailto:clientsupport@primekreatives.com">clientsupport@primekreatives.com</a>')
         +'<a href="tel:+639691556228">+63 969 155 6228</a>'
         +'<span>Cebu City, Philippines</span>'
       +'</div>'
