@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OG card source</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* Source for assets/og/*.png. Render at 1200x630, screenshot #card.
+     Usage: tools/og-card.html?v=home   (home|services|discovery|process|portfolio|digital) */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #223; }
+  #card {
+    position: relative;
+    width: 1200px; height: 630px;
+    background: #0F294C;
+    color: #F4F1EA;
+    font-family: 'Work Sans', sans-serif;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+    padding: 64px 72px 58px;
+  }
+  #card::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(900px 520px at 88% -12%, rgba(184,137,23,.30), transparent 62%),
+      radial-gradient(700px 460px at -8% 108%, rgba(221,181,104,.14), transparent 60%);
+    pointer-events: none;
+  }
+  #card::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 10px;
+    background: linear-gradient(90deg, #B88917, #DDB568 55%, #E39F0E);
+  }
+  .top { position: relative; display: flex; align-items: center; justify-content: space-between; }
+  .logo { height: 52px; width: auto; }
+  .badge {
+    font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: .16em;
+    text-transform: uppercase; color: #DDB568;
+    border: 1px solid rgba(221,181,104,.45); border-radius: 100px;
+    padding: 9px 18px;
+  }
+  .mid { position: relative; max-width: 1010px; }
+  .eyebrow {
+    display: block; font-family: 'Space Mono', monospace;
+    font-size: 14px; letter-spacing: .22em; text-transform: uppercase;
+    color: #DDB568; margin-bottom: 22px;
+  }
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500; font-size: 68px; line-height: 1.1; letter-spacing: -.015em;
+    color: #F4F1EA; text-wrap: balance;
+  }
+  h1 em { font-style: italic; color: #E9CE93; }
+  .sub {
+    margin-top: 24px; font-size: 22px; line-height: 1.45; color: rgba(244,241,234,.78);
+    max-width: 880px; font-weight: 400;
+  }
+  .foot {
+    position: relative; display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(221,181,104,.28); padding-top: 26px;
+    font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: .13em;
+    text-transform: uppercase; color: rgba(244,241,234,.62);
+  }
+  .foot strong { color: #DDB568; font-weight: 700; letter-spacing: .13em; }
+  .dots { display: flex; gap: 26px; }
+</style>
+</head>
+<body>
+<div id="card" role="img" aria-label="Prime Kreatives social share card">
+  <div class="top">
+    <img class="logo" src="/assets/logo-secondary-reverse.png" alt="Prime Kreatives">
+    <span class="badge" id="badge">Client operations</span>
+  </div>
+
+  <div class="mid">
+    <span class="eyebrow" id="eyebrow">Client operations for AU &amp; US firms</span>
+    <h1 id="headline"></h1>
+    <p class="sub" id="sub"></p>
+  </div>
+
+  <div class="foot">
+    <div class="dots">
+      <span><strong>Free Ops Leak Audit</strong></span>
+      <span>Fixed scope</span>
+      <span>Fixed price</span>
+    </div>
+    <span>primekreatives.com</span>
+  </div>
+</div>
+
+<script>
+  var VARIANTS = {
+    home: {
+      badge: 'Client operations',
+      eyebrow: 'Client operations for AU &amp; US firms',
+      headline: 'Your clients judge you by your <em>reporting</em>, not your expertise.',
+      sub: 'Inbox, SLAs, weekly reports, SOPs and brand \u2014 run by one senior operator so it works, and looks, like a firm twice your size.'
+    },
+    services: {
+      badge: 'Packages &amp; pricing',
+      eyebrow: 'Start small, scale when it pays',
+      headline: 'Find where your operations <em>leak</em>, then fix it.',
+      sub: 'Free audit, $49\u2013$149 template packs, $300\u2013$1,500 builds, $450\u2013$2,000/mo retainers. Prices in USD, AUD or PHP.'
+    },
+    discovery: {
+      badge: 'Free Ops Leak Audit',
+      eyebrow: '30 minutes, no pitch deck',
+      headline: 'Tell me what is <em>slowing</em> your team down.',
+      sub: 'A short call, a written summary of the leaks, and a fixed-price plan. You keep the summary either way.'
+    },
+    process: {
+      badge: 'How it works',
+      eyebrow: 'Five phases, no surprises',
+      headline: 'Scope first. Fixed price. <em>Documented</em> handover.',
+      sub: 'You always know what is being built, what it costs, and who owns it when the engagement ends.'
+    },
+    portfolio: {
+      badge: 'Selected work',
+      eyebrow: 'Reporting, systems, brand',
+      headline: 'Proof, not <em>promises</em>.',
+      sub: 'Client reporting dashboards, KPI and SLA trackers, SOP systems and full brand identity suites \u2014 real work, real screens.'
+    },
+    digital: {
+      badge: 'Template packs',
+      eyebrow: 'Prime Kreatives Digital',
+      headline: 'Ready-made. Automated. <em>Always</em> in reach.',
+      sub: 'Reporting kits, ops SOP packs and brand starter sets from $49. Tailored to your business on request.'
+    }
+  };
+  var key = new URLSearchParams(location.search).get('v') || 'home';
+  var d = VARIANTS[key] || VARIANTS.home;
+  badge.innerHTML = d.badge;
+  eyebrow.innerHTML = d.eyebrow;
+  headline.innerHTML = d.headline;
+  sub.textContent = d.sub;
+  document.title = 'OG ' + key;
+</script>
+</body>
+</html>

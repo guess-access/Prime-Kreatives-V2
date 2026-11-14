@@ -1,3 +1,4 @@
+# Files that must never be uploaded as public assets.
 .git
 .gitignore
 .assetsignore
@@ -5,3 +6,4 @@
 wrangler.toml
 *.md
 node_modules
+tools

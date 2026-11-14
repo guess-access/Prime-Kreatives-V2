@@ -57,6 +57,25 @@ bound to the Worker as a **Workers Custom Domain**. DNS and TLS are managed by C
   TXT record are not touched by a deploy.
 - Do not delete the Custom Domain binding when redeploying.
 
+## Social share cards (OG images)
+
+`assets/og/*.png` are the 1200x630 link-preview cards: `home`, `services`, `discovery`,
+`process`, `portfolio`, `digital`. Each page points `og:image` and `twitter:image` at its own
+card, with `summary_large_image` so shared links show the headline instead of a logo.
+
+The editable source is `tools/og-card.html`, which `.assetsignore` keeps out of the deploy.
+To change a headline, edit the `VARIANTS` map there, serve the repo root locally, then
+re-render with headless Chrome:
+
+```powershell
+& "C:\Program Files\Google\Chrome\Application\chrome.exe" --headless=new --hide-scrollbars `
+  --window-size=1200,630 --force-device-scale-factor=1 --virtual-time-budget=6000 `
+  --screenshot=assets/og/home.png "http://127.0.0.1:8791/tools/og-card.html?v=home"
+```
+
+Repeat with `?v=services`, `?v=discovery`, and so on. Output files must stay exactly
+1200x630; the meta tags declare those dimensions.
+
 ## Forms
 
 The booking and order forms post to **FormSubmit**
